@@ -1,0 +1,30 @@
+type Query {
+    users: [User]
+    filterUserByUsername(input: String!): [User]!
+    getUserById(input: String!): User
+}
+
+type Mutation {
+    addNewUser(input: newUser!): String
+}
+
+scalar DateTime
+
+type User {
+    id: String!
+    username: String!
+    email: String!
+    quotes: [Quote]
+}
+
+type Quote {
+    id: String!
+    text: String!
+    date: DateTime!
+}
+
+input newUser {
+    id: String!
+    username: String!
+    email: String!
+}
